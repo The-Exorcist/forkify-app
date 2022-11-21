@@ -12,10 +12,6 @@ import 'regenerator-runtime/runtime';
 import addRecipeView from './views/addRecipeView.js';
 import { async } from 'regenerator-runtime';
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -53,7 +49,6 @@ const controlSearchResults = async function () {
     await model.loadSearchResult(query);
 
     // 3) Render results
-    // resultsView.render(model.state.search.results);
     resultsView.render(model.getSearchResultPage());
 
     // 4) Render initial pagination buttons
@@ -75,7 +70,6 @@ const controlServing = function (newServings) {
   model.updateServings(newServings);
 
   // Update the recipe view
-  // recipeView.render(model.state.recipe);
   recipeView.update(model.state.recipe);
 };
 
@@ -138,14 +132,9 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  newFeature();
 };
 init();
 
 const clearBookmarks = function () {
   localStorage.clear('bookmarks');
 }
-// clearBookmarks();
-
-// https://forkify-api.herokuapp.com/v2
-// 2d519ac1-ebe5-439e-871f-9db80cf5ed38

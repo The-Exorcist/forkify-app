@@ -1,6 +1,5 @@
 import { async } from "regenerator-runtime";
 import { API_URL, RES_PER_PAGE, KEY } from './config.js';
-// import { getJSON, sendJSON } from './helpers.js';
 import { AJAX } from './helpers.js';
 
 export const state = {
@@ -109,9 +108,8 @@ export const deleteBookmark = function (id) {
 const init = function () {
     const storage = localStorage.getItem('bookmarks');
     if (storage) state.bookmarks = JSON.parse(storage);
-}
+};
 init();
-// console.log(state.bookmarks);
 
 export const uploadRecipe = async function (newRecipe) {
     try {
@@ -119,7 +117,6 @@ export const uploadRecipe = async function (newRecipe) {
             entry => entry[0].startsWith('ingredient') && entry[1] !== ''
         ).map(ing => {
             const ingArr = ing[1].split(',').map(el => el.trim());
-            // const ingArr = ing[1].replaceAll(' ', '').split(',');
             if (ingArr.length !== 3) throw new Error('Wrong ingredient format! Please use correct one ;)')
             const [quantity, unit, description] = ingArr;
             return { quantity: quantity ? +quantity : null, unit, description };
@@ -141,5 +138,4 @@ export const uploadRecipe = async function (newRecipe) {
     } catch (err) {
         throw err;
     }
-}
-// 
+};
