@@ -6,7 +6,8 @@
   "default": "index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build --dist-dir ./dist"
+    "build": "parcel build --dist-dir ./dist --no-scope-hoist",
+    "cleanup": "rm -rf .parcel-cache dist"
   },
   "author": "Konstantin Gunkin",
   "license": "ISC",

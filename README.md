@@ -1,5 +1,8 @@
-# forkify Project
+# Forkify Project
 
 Recipe application with custom recipe uploads.
 
-https://forkify-api.herokuapp.com/v2
+Deploy: ```https://forkify-konstantin.netlify.app/```
+
+
+API: ```https://forkify-api.herokuapp.com/v2```
